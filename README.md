@@ -13,3 +13,7 @@ npm install
 npm start
 
 localhost:3000
+
+
+example image:
+<img src="./images/example.png" width="250" />
