@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {View, Text, Button, TextInput} from 'react-native';
 
-const Login = login => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+const Login = ({loginFunc}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const loginUser = () => {
-    login(email, password);
+    loginFunc({email, password});
   };
 
   return (
@@ -23,16 +23,25 @@ const Login = login => {
 
       <View>
         <Text>Email</Text>
-        <TextInput value={password} onChangeText={setPassword} />
+        <TextInput testID="email_input" value={email} onChangeText={setEmail} />
       </View>
 
       <View>
         <Text>Password</Text>
-        <TextInput onChangeText={setPassword} secureTextEntry />
+        <TextInput
+          testID="password_input"
+          onChangeText={setPassword}
+          secureTextEntry
+        />
       </View>
 
       <View>
-        <Button title="Login" color="#ff3559" onPress={loginUser} />
+        <Button
+          testID="login_button"
+          title="Login"
+          color="#ff3559"
+          onPress={loginUser}
+        />
       </View>
     </View>
   );
